@@ -4,7 +4,7 @@ export default function MainPage(){
     
     return (
         <div className="main-page">
-            <h1> Welcome to the main page!</h1>
+            <h1> UNDER CONSTRUCTION 🏗️ </h1>
         </div>
     );
 }
