@@ -15,7 +15,7 @@ console.log(`basename: ${(INJECTED as any).basename || "undefined"}`)
 const rootReference: Container = document.getElementById('root') as HTMLElement;
 const root:Root = createRoot(rootReference);
 root.render(
-    <BrowserRouter basename={(INJECTED as any).basename || '/'}>
+    <BrowserRouter basename="">
         <Routes>
             <Route path='/' element={<App/>}>
                 <Route index={true} element={<MainPage/>}/>

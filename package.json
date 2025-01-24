@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "build-gh-pages": "webpack --mode production --env basename=/",
-    "deploy": "gh pages -d dist",
+    "build-gh-pages": "webpack --mode production --env basename=/ && cp dist/index.html dist/404.html",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
