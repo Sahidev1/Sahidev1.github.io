@@ -1,11 +1,23 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { Paths } from "../utils/paths";
 
+export interface NavBarInterface {
+    availPaths:string[]|undefined,
+    navFn: (path: string) => void;
+};
 
-export default function NavBar(){
+export default function NavBar(props:NavBarInterface){
+    const [availPaths, navFn] = [props.availPaths, props.navFn];
+    
+
     return (
         <div className="navbar">
-            <Link to="/about"> About </Link>
+            {availPaths?.map((path) => {
+                return (
+                    <button onClick={()=>navFn(path)}>{path}</button>
+                )
+            })}
         </div>
     );
 }
