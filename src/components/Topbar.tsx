@@ -15,8 +15,17 @@ export default function Topbar(props:TopBarInterface){
     useEffect(()=>{
         const currPath:string = window.location.pathname;
 
-        const availPaths = possiblePaths.filter(val => val !== currPath);
-        setAvailPaths(availPaths);
+        const avails = possiblePaths.filter(val => val !== currPath);
+        
+        if(avails.length == availPaths?.length){
+            if(!avails.every((val, i) => val == availPaths[i])){
+                setAvailPaths(avails)
+            }
+        }
+        else {
+            setAvailPaths(avails)
+        }
+
     })
 
     const navBarProps:NavBarInterface = {
