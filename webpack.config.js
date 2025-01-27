@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 
-
 module.exports = (env) => {
   console.log(`env print: ${JSON.stringify(env)}`)
   return {
@@ -48,6 +47,7 @@ module.exports = (env) => {
       static: './dist',
       port: 3000,
       open: true,
+      historyApiFallback:true
     },
   }
 };
