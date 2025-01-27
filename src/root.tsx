@@ -8,6 +8,7 @@ import Topbar from './components/Topbar';
 import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
 import ErrorPage from './pages/ErrorPage';
+import ProjectsPage from './pages/ProjectsPage';
 
 
 console.log(INJECTED);
@@ -21,8 +22,9 @@ root.render(
             <Route path='/' element={<App/>}>
                 <Route index={true} element={<MainPage/>}/>
                 <Route path='about' element={<AboutPage/>}/>
+                <Route path='projects' element={<ProjectsPage/>}/>
+                <Route path="*" element={<ErrorPage/>}/>
             </Route>
-            <Route path="*" element={<ErrorPage/>}/>
         </Routes>
     </BrowserRouter>
 );

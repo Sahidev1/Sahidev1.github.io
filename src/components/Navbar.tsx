@@ -5,17 +5,18 @@ import { Paths } from "../utils/paths";
 export interface NavBarInterface {
     availPaths:string[]|undefined,
     navFn: (path: string) => void;
+    pathDescriptorMap: Record<string, string>;
 };
 
 export default function NavBar(props:NavBarInterface){
-    const [availPaths, navFn] = [props.availPaths, props.navFn];
+    const [availPaths, navFn, descMap] = [props.availPaths, props.navFn, props.pathDescriptorMap];
     
 
     return (
         <div className="navbar">
-            {availPaths?.map((path) => {
+            {availPaths?.map((path, index) => {
                 return (
-                    <button onClick={()=>navFn(path)}>{path}</button>
+                    <button key={`path${index}`} onClick={()=>navFn(path)}>{descMap[path]}</button>
                 )
             })}
         </div>
