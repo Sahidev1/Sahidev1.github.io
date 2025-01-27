@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import Topbar from './components/Topbar';
 import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
+import ErrorPage from './pages/ErrorPage';
 
 
 console.log(INJECTED);
@@ -21,6 +22,7 @@ root.render(
                 <Route index={true} element={<MainPage/>}/>
                 <Route path='about' element={<AboutPage/>}/>
             </Route>
+            <Route path="*" element={<ErrorPage/>}/>
         </Routes>
     </BrowserRouter>
 );
