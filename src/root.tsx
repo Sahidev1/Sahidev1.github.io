@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Container, createRoot, Root } from 'react-dom/client';
-import './styles.css';
+import './styles.scss';
 import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Topbar from './components/Topbar';
