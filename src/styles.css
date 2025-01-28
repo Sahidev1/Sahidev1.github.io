@@ -13,6 +13,10 @@ footer {
   width: 100%;
   text-align: center;
   overflow: hidden;
+  border-width: 3px;
+  border-top-style: double;
+  border-top-color: rgba(200, 200, 200, 0.41);
+  padding: 5px;
 }
 
 
@@ -24,12 +28,14 @@ footer {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .topbar {
   width: 100%;
   height: 20vh;
   border: 1px solid black;
+  padding: 10px;
 }
 
 *,
