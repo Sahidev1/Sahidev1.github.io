@@ -40,13 +40,14 @@ module.exports = (env) => {
       new CopyPlugin({
         patterns: [
           {from: 'public/_redirects', to: '' },
+          { from: 'public/data/*.json', to: '[name][ext]' }
         ]
       })
     ],
     devServer: {
       static: './dist',
       port: 3000,
-      open: true,
+      open: false, 
       historyApiFallback:true
     },
   }

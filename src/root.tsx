@@ -12,7 +12,7 @@ import ProjectsPage from './pages/ProjectsPage';
 
 
 console.log(INJECTED);
-console.log(`basename: ${(INJECTED as any).basename || "undefined"}`)
+console.log(`basename: ${(INJECTED as any)['basename']|| "undefined"}`)
 
 const rootReference: Container = document.getElementById('root') as HTMLElement;
 const root:Root = createRoot(rootReference);

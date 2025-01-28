@@ -1,21 +1,27 @@
-import React from 'react';
-import { Routes, Route, Outlet, useNavigate } from 'react-router';
+import React, { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router';
 import Topbar, { TopBarInterface } from './components/Topbar';
-import MainPage from './pages/MainPage';
-import AboutPage from './pages/AboutPage';
+import { createContext } from 'react';
+
+
+export const ContentLangContext = createContext("en");
+
 
 const App = () => {
+  const [contentLang, setContentLang] = useState<string>("en");
   const navigate = useNavigate();
 
   const topBarProps: TopBarInterface = {
-    navFn:(path:string) => navigate(path)
+    navFn: (path: string) => navigate(path)
   }
 
-  return( 
-    <div className='app-container'>
-      <Topbar {...topBarProps}/>
-      <Outlet/>
-    </div>
+  return (
+    <ContentLangContext.Provider value={contentLang}>
+      <div className='app-container'>
+        <Topbar {...topBarProps} />
+        <Outlet />
+      </div>
+    </ContentLangContext.Provider>
   );
 }
 
