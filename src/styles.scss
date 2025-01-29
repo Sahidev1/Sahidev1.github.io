@@ -1,49 +1,160 @@
+// Variables
+$font-base: 'Inter', Arial, sans-serif;
+$spacing: 1rem;
 
-$font-family_1: Arial, sans-serif;
-$background-color_1: peachpuff;
-$border-top-color_1: rgba(200, 200, 200, 0.41);
+// Colors
+$color-bg: #FFF7F0;  // Softer peach
+$color-topbar: rgba(0, 0, 97, 0.8);  // Rich deep red
+$color-border: rgba(36, 35, 35, 0.2);
+$color-border-light: rgba(200, 200, 200, 0.35);
+$color-button-primary: #8C1E1E;
+$color-button-hover: #A32929;
+$color-button-secondary: rgba(140, 30, 30, 0.15);
+$color-text: #333;  // Accessible dark gray
 
-body {
-	font-family: $font-family_1;
-	margin: 0;
-	padding: 0;
-	background-color: $background-color_1;
+// Primary Font (for body and text)
+$font-family-base: 'Inter', 'Arial', sans-serif;
+
+// Secondary Font (for headers or emphasis)
+$font-family-heading: 'Poppins', 'Montserrat', sans-serif;
+
+// Spacing Base
+$spacing: 1rem;
+
+
+
+// Mixins
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
 }
-footer {
-	background-color: $background-color_1;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	overflow: hidden;
-	border-width: 3px;
-	border-top-style: double;
-	border-top-color: $border-top-color_1;
-	padding: 5px;
+
+@mixin fixed-full-width {
+  position: fixed;
+  left: 0;
+  width: 100%;
 }
-.app-container {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100vh;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	padding: 10px;
-}
-.topbar {
-	width: 100%;
-	height: 20vh;
-	border: 1px solid black;
-	padding: 10px;
-}
+
+// Reset
 * {
-	box-sizing: border-box;
-	&::before {
-		box-sizing: border-box;
-	}
-	&::after {
-		box-sizing: border-box;
-	}
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
+
+// Base styles
+body {
+  font-family: $font-family-base;
+  margin: 0;
+  padding: 0;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-family-heading;
+	font-weight: 600;
+	color: $color-text;
+  }
+  
+  h1 {
+	font-size: 2.5rem;
+  }
+  
+  h2 {
+	font-size: 2rem;
+  }
+  
+  // Example for Paragraphs
+  p {
+	font-family: $font-family-base;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.7;
+  }
+
+// Layout components
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  @include flex-column;
+  padding: $spacing;
+  gap: $spacing;
+}
+
+.topbar {
+  width: 100%;
+  min-height: 15vh;
+  padding: $spacing;
+  background-color: $color-topbar;
+  color: white;
+  border: 2px solid $color-border;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+.outlet {
+  padding: 0 $spacing;
+  flex: 1;
+}
+
+footer {
+  @include fixed-full-width;
+  bottom: 0;
+  padding: $spacing;
+  background-color: $color-bg;
+  text-align: center;
+  border-top: 3px double $color-border-light;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+// Button Styles
+button {
+  font-family: $font-base;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: $color-button-primary;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: $color-button-hover;
+    transform: scale(1.02);
+  }
+
+  &:focus {
+    outline: 2px solid $color-border-light;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+
+
+
+// Variables as CSS Custom Properties
+:root {
+  --color-bg: #FFF7F0;
+  --color-topbar: #8C1E1E;
+  --color-text: #333;
+}
+

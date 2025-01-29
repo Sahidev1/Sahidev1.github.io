@@ -19,7 +19,9 @@ const App = () => {
     <ContentLangContext.Provider value={contentLang}>
       <div className='app-container'>
         <Topbar {...topBarProps} />
-        <Outlet />
+        <div className='outlet'>
+          <Outlet />
+        </div>
       </div>
     </ContentLangContext.Provider>
   );
