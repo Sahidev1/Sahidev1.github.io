@@ -121,9 +121,11 @@ p {
 }
 
 footer {
-	@include fixed-full-width;
+	position: fixed;
+	left: 1rem;
+	right: 1rem;
 	bottom: 0;
-	padding: $spacing;
+	padding: 0.1rem;
 	background-color: $color-bg;
 	text-align: center;
 	border-top: 3px double $color-border-light;
