@@ -2,6 +2,8 @@
 
 $spacing: 1rem;
 
+$monteserrat-font-weight: 400;
+
 // Colors
 $color-bg: #FFF7F0; // Softer peach
 $color-topbar: rgba(0, 0, 97, 0.85); // Rich deep blue
@@ -12,11 +14,16 @@ $color-button-hover: #A32929;
 $color-button-secondary: rgba(140, 30, 30, 0.15);
 $color-text: #333; // Accessible dark gray
 
+
+
+
+
+
 // Primary Font (for body and text)
-$font-family-base: 'Roboto', serif;
+$font-family-base: "Cardo", serif;
 
 // Secondary Font (for headers or emphasis)
-$font-family-heading: 'Lato', serif;
+$font-family-heading: "Montserrat", sans-serif;
 
 // Spacing Base
 $spacing: 1rem;
@@ -56,12 +63,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+h1, h2, h3, h4, h5, h6 {
 	font-family: $font-family-heading;
 	font-weight: 600;
 	color: $color-text;
@@ -79,8 +82,8 @@ h2 {
 p {
 	font-family: $font-family-base;
 	font-weight: 400;
-	font-size: 1rem;
-	line-height: 1.7;
+	font-size: 1.05rem;
+	line-height: 1.5;
 }
 
 // Layout components
@@ -130,7 +133,8 @@ footer {
 
 // Button Styles
 button {
-	font-family: $font-family-base;
+	font-family: $font-family-heading;
+	font-weight: 500;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	margin: 0 0.5rem;
@@ -157,14 +161,14 @@ button {
 }
 
 .navbar {
-	float:right;
+	float: right;
 }
 
 .name-bar {
 	float: left;
+
 	h3 {
-		color:white;
-		font-family: $font-family-base;
+		color: white;
 	}
 }
 
