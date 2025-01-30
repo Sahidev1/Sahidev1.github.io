@@ -61,7 +61,7 @@ export default function MainPage(){
             Object.keys(content.langMap[contentLang]).map((key) => {
                 return <p className={key} key={key}> {(content.langMap[contentLang] as any)[key]} </p>
             })
-            :"loading"}
+            :<p>loading</p>}
         </div>
     );
 }

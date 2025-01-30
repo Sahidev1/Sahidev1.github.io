@@ -1,5 +1,5 @@
 // Variables
-$font-base: 'Inter', Arial, sans-serif;
+
 $spacing: 1rem;
 
 // Colors
@@ -13,10 +13,10 @@ $color-button-secondary: rgba(140, 30, 30, 0.15);
 $color-text: #333; // Accessible dark gray
 
 // Primary Font (for body and text)
-$font-family-base: 'Inter', 'Arial', sans-serif;
+$font-family-base: 'Roboto', serif;
 
 // Secondary Font (for headers or emphasis)
-$font-family-heading: 'Poppins', 'Montserrat', sans-serif;
+$font-family-heading: 'Lato', serif;
 
 // Spacing Base
 $spacing: 1rem;
@@ -101,7 +101,7 @@ p {
 	color: white;
 	border: 2px solid $color-border;
 	border-radius: 12px;
-	box-shadow: 0 2px 8px rgba(97, 0, 0, 0.4);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 	align-items: center;
 	justify-content: space-between;
 	transition: box-shadow 0.3s ease, transform 0.2s ease;
@@ -130,7 +130,7 @@ footer {
 
 // Button Styles
 button {
-	font-family: $font-base;
+	font-family: $font-family-base;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	margin: 0 0.5rem;
