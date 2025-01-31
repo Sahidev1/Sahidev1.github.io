@@ -66,12 +66,12 @@ $spacing: 1rem;
 		visibility: hidden;
 		padding-left: 10px;
 		padding-right: 10px;
-		background-color: $color-bg;
-		color: black;
+		background-color: $color-button-primary;
+		color: $color-bg;
 		text-align: center;
 		border-radius: 6px;
 		border-style: solid;
-		border-color: $color-button-primary;
+		border-color: $color-bg;
 		font-family: $font-family-heading;
 
 		/* Position the tooltip text - see examples below! */
