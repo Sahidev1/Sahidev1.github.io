@@ -40,7 +40,8 @@ module.exports = (env) => {
       new CopyPlugin({
         patterns: [
           {from: 'public/_redirects', to: '' },
-          { from: 'public/data/*.json', to: '[name][ext]' }
+          {from: 'public/data/*.json', to: '[name][ext]' },
+          {from: 'public/assets/*.png', to: '[name][ext]' },
         ]
       })
     ],

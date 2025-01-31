@@ -43,6 +43,16 @@ $spacing: 1rem;
 	width: 100%;
 }
 
+@mixin logo {
+	margin: 0rem 0.5rem 0rem 0.5rem; 
+	background-color: $color-bg;
+	width: 36px;
+	height: 36px;
+	a > img {
+		width: 36px;
+	}
+}
+
 // Reset
 * {
 	box-sizing: border-box;
@@ -65,7 +75,12 @@ body {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: $font-family-heading;
 	font-weight: 600;
 	color: $color-text;
@@ -131,7 +146,7 @@ footer {
 	border-top: 3px double $color-border-light;
 	backdrop-filter: blur(5px);
 	z-index: 10;
-	
+
 }
 
 // Button Styles
@@ -182,6 +197,17 @@ button {
 
 
 
+.github-logo {
+	@include logo()
+}
+
+.linkedin-logo {
+	@include logo()
+}
+
+.links-bar{
+	display: flex;
+}
 
 // Variables as CSS Custom Properties
 :root {

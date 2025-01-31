@@ -3,6 +3,7 @@ import NavBar from "./Navbar";
 import { Paths } from "../utils/paths";
 import { NavBarInterface } from "./Navbar";
 import NameBar from "./NameBar";
+import LinksBar from "./LinksBar";
 
 export interface TopBarInterface {
     navFn: (path: string) => void;
@@ -35,6 +36,7 @@ export default function Topbar(props: TopBarInterface) {
     return (
         <div className="topbar">
             <NameBar />
+            <LinksBar/>
             <NavBar {...navBarProps} />
         </div>);
 }
