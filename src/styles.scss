@@ -53,6 +53,36 @@ $spacing: 1rem;
 	}
 }
 
+
+@mixin tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+	.tooltiptext {
+		visibility: hidden;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: $color-bg;
+		color: black;
+		text-align: center;
+		border-radius: 6px;
+		border-style: solid;
+		border-color: $color-button-primary;
+	   
+		/* Position the tooltip text - see examples below! */
+		position: absolute;
+		left: 2.5rem;
+		top: 2.5rem;
+		z-index: 1;
+	}
+
+	&:hover .tooltiptext {
+		visibility: visible;
+	}
+}
+  
+
+
 // Reset
 * {
 	box-sizing: border-box;
@@ -205,9 +235,16 @@ button {
 	@include logo()
 }
 
+.email-logo {
+	@include logo();
+	@include tooltip();
+}	
+
 .links-bar{
 	display: flex;
 }
+
+
 
 // Variables as CSS Custom Properties
 :root {

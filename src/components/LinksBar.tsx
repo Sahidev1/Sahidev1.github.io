@@ -1,5 +1,5 @@
 import React from "react"
-import { GitHubLogo, LinkedInLogo} from "./Logos"
+import { EmailLogo, GitHubLogo, LinkedInLogo} from "./Logos"
 
 export default function LinksBar (){
 
@@ -8,6 +8,7 @@ export default function LinksBar (){
         <div className="links-bar">
             <GitHubLogo/>
             <LinkedInLogo/>
+            <EmailLogo/>
         </div>
     )
 }
