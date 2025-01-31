@@ -104,7 +104,6 @@ p {
 	background-color: $color-topbar;
 	color: white;
 	border: 2px solid $color-border;
-	border-radius: 12px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 	align-items: center;
 	justify-content: space-between;
@@ -142,7 +141,6 @@ button {
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	margin: 0 0.5rem;
-	border-radius: 8px;
 	border: none;
 	cursor: pointer;
 	color: white;
