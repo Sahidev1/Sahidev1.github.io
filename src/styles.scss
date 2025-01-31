@@ -28,6 +28,17 @@ $font-family-heading: "Montserrat", sans-serif;
 // Spacing Base
 $spacing: 1rem;
 
+html {
+	--s: 100px; /* control the size*/
+	--c1: #8C1E1E;
+	--c2: #FFF7F0;
+	
+	background:
+	  conic-gradient(var(--c1)   135deg,var(--c2) 0 270deg,
+					 var(--c1) 0 315deg,var(--c2) 0)
+	  0/var(--s) var(--s);
+  }
+
 
 
 // Mixins
@@ -57,7 +68,6 @@ body {
 	font-family: $font-family-base;
 	margin: 0;
 	padding: 0;
-	background-color: $color-bg;
 	color: $color-text;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
@@ -116,8 +126,11 @@ p {
 }
 
 .outlet {
+	background-color: $color-bg;
 	padding: 0 $spacing;
-	flex: 1;
+	flex: 0.1;
+	border-radius: 12px;
+	border: 5px solid $color-topbar;
 }
 
 footer {
@@ -131,6 +144,8 @@ footer {
 	border-top: 3px double $color-border-light;
 	backdrop-filter: blur(5px);
 	z-index: 10;
+	border-top-left-radius:12px;
+	border-top-right-radius:12px;
 }
 
 // Button Styles
