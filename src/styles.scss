@@ -25,6 +25,10 @@ $font-family-base: "Cardo", serif;
 // Secondary Font (for headers or emphasis)
 $font-family-heading: "Montserrat", sans-serif;
 
+
+// footer font
+$font-family-footer: arial, sans-serif;
+
 // Spacing Base
 $spacing: 1rem;
 
@@ -44,11 +48,11 @@ $spacing: 1rem;
 }
 
 @mixin logo {
-	margin: 0rem 0.5rem 0rem 0.5rem; 
-	background-color: $color-bg;
+	margin: 0rem 0.5rem 0rem 0.5rem;
 	width: 36px;
 	height: 36px;
-	a > img {
+
+	a>img {
 		width: 36px;
 	}
 }
@@ -57,7 +61,7 @@ $spacing: 1rem;
 @mixin tooltip {
 	position: relative;
 	display: inline-block;
-	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+
 	.tooltiptext {
 		visibility: hidden;
 		padding-left: 10px;
@@ -69,7 +73,7 @@ $spacing: 1rem;
 		border-style: solid;
 		border-color: $color-button-primary;
 		font-family: $font-family-heading;
-	   
+
 		/* Position the tooltip text - see examples below! */
 		position: absolute;
 		left: 2.5rem;
@@ -81,7 +85,7 @@ $spacing: 1rem;
 		visibility: visible;
 	}
 }
-  
+
 
 
 // Reset
@@ -178,6 +182,13 @@ footer {
 	backdrop-filter: blur(5px);
 	z-index: 10;
 
+	p {
+		font-family: $font-family-footer;
+		color: gray;
+		font-size: 8px;
+		line-height: 4px;
+	}
+
 }
 
 // Button Styles
@@ -229,19 +240,19 @@ button {
 
 
 .github-logo {
-	@include logo()
+	@include logo();
 }
 
 .linkedin-logo {
-	@include logo()
+	@include logo();
 }
 
 .email-logo {
 	@include logo();
 	@include tooltip();
-}	
+}
 
-.links-bar{
+.links-bar {
 	display: flex;
 }
 

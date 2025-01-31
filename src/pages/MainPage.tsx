@@ -46,6 +46,8 @@ export default function MainPage() {
     const contentLang: string = useContext<string>(ContentLangContext);
     const [fetchDone, setFetchDone] = useState<boolean>(false);
 
+    const [showConstruction, setShowConstruction] = useState<boolean>(true);
+
     useEffect(() => {
         content.fetchData()
             .then(() => setFetchDone(true))
@@ -59,7 +61,7 @@ export default function MainPage() {
         <div className="main-page">
         
         
-            <h1> UNDER CONSTRUCTION 🏗️ </h1>
+            <h1 hidden={!showConstruction} onClick={()=>setShowConstruction(!showConstruction)}> UNDER CONSTRUCTION 🏗️ </h1>
             {fetchDone ?
                 Object.keys(content.langMap[contentLang]).map((key) => {
                     return <p className={key} key={key}> {(content.langMap[contentLang] as any)[key]} </p>
