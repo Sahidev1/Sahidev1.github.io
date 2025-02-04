@@ -143,8 +143,8 @@ h2 {
 p {
 	font-family: $font-family-base;
 	font-weight: $roboto-font-weight-thin;
-	font-size: 1.3rem;
-	line-height: 1.6;
+	font-size: 1.25rem;
+	line-height: 1.5;
 }
 
 // Layout components
@@ -190,7 +190,7 @@ footer {
 	text-align: center;
 	border-top: 1px;
 	border-top-style: solid;
-	border-top-color: rgba(140, 30, 30, 0.5);
+	border-top-color: rgba(0, 0, 97, 0.45);
 	backdrop-filter: blur(5px);
 	z-index: 10;
 

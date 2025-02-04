@@ -1,9 +1,19 @@
 {
     "contents": {
         "en": {
-            "introduction": "Hello! 👋, I am Ali Sahibi.",
-            "whoami": "I have recently graduated with a bachelor of science degree in computer engineering from KTH and I am looking for opportunities to further develop and learn as an engineer.",
-            "interests": "My interests are primarily in web development, both backend and frontend development. However, my field of interest within programming and computer science is quite wide and I enjoy learning new things"
+            "intro":{
+                "title": "Ali Sahibi, aspiring software engineer",
+                "introduction": "Hello, I am Ali Sahibi.",
+                "whoami": "I have recently graduated with a bachelor of science degree in computer engineering from KTH and I am looking for opportunities to further develop and learn as an engineer.",
+                "interests": "My interests are primarily in web development, both backend and frontend development. However, my field of interest within programming and computer science is quite wide and I enjoy learning new things."
+            },
+            "skills":{
+                "title": "Skills summary",
+                "languages": "Java, JavaScript/TypeScript, C, Elixir, Python, SQL (Postgres), HTML, CSS, SCSS",
+                "frameworks": "React, Node.js, Express.js",
+                "tools": "Git, Docker, VS Code, IntelliJ, Netbeans, Apache Jmeter",
+                "platforms": "Azure, Heroku"
+            }
         }
     }
 }

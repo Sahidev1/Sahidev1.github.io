@@ -8,10 +8,9 @@ import { GitHubLogo, LinkedInLogo } from "../components/Logos";
 
 
 type Contents = {
-    introduction: string;
-    whoami: string;
-    interests: string;
-}
+    "intro": { [key: string]: string | null };
+    "skills": { [key: string]: string | null };
+};
 
 type LangMap = {
     [key: string]: Contents;
@@ -38,6 +37,17 @@ class MainPageContents {
             console.error(error)
         }
     }
+
+    hasLang(lang: string): boolean {
+        return (this.langMap[lang] && true) || false;
+    }
+
+    getContents(lang: string): Contents | null {
+        if (!this.langMap[lang]) {
+            return null;
+        }
+        return this.langMap[lang];
+    }
 }
 
 const content: MainPageContents = new MainPageContents();
@@ -59,14 +69,40 @@ export default function MainPage() {
 
     return (
         <div className="main-page">
-        
-        
-            <h1 hidden={!showConstruction} onClick={()=>setShowConstruction(!showConstruction)}> UNDER CONSTRUCTION 🏗️ </h1>
-            {fetchDone ?
-                Object.keys(content.langMap[contentLang]).map((key) => {
-                    return <p className={key} key={key}> {(content.langMap[contentLang] as any)[key]} </p>
-                })
-                : <p>loading</p>}
+
+
+            <h1 hidden={!showConstruction} onClick={() => setShowConstruction(!showConstruction)}> UNDER CONSTRUCTION 🏗️ </h1>
+            {fetchDone && content.hasLang(contentLang) ?
+                <span className="contents">
+                    <span className="intro">
+                        {(content.getContents(contentLang) as any)["intro"] ?
+                            Object.keys((content.getContents(contentLang) as any)["intro"]).map(e => {
+                                let intro = (content.getContents(contentLang) as any)["intro"];
+                                if (e == "title") {
+                                    return <h2 className={e} key={e}>{intro[e]}</h2>
+                                }
+                                return <p className={e} key={e}>{intro[e]}</p>
+                            })
+                            : ""}
+                    </span>
+                    <span className="skills">
+                        {(content.getContents(contentLang) as any)["skills"] ?
+                            Object.keys((content.getContents(contentLang) as any)["skills"]).map(e => {
+                                let skills = (content.getContents(contentLang) as any)["skills"];
+                                if (e == "title") {
+                                    return <h2 className={e} key={e}>{skills[e]}</h2>
+                                }
+                                return <p className={e} key={e}>
+                                    <strong>{`${e.slice(0,1).toUpperCase()+e.slice(1,e.length)}: `}</strong>{skills[e]}
+                                </p>
+                            })
+                            : ""}
+                    </span>
+                </span>
+                : <p>loading</p>
+
+
+            }
         </div>
     );
 }
