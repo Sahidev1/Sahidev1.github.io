@@ -14,7 +14,7 @@ type Contents = {
 
 type LangMap = {
     [key: string]: Contents;
-}
+} 
 
 class MainPageContents {
     langMap: LangMap;

@@ -4,9 +4,9 @@
   "main": "index.js",
   "homepage": "https://Sahidev1.github.io",
   "scripts": {
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
-    "build-gh-pages": "webpack --mode production --env basename=/ && cp dist/index.html dist/404.html",
+    "start": "webpack serve --mode development --env TEST=cool GITAPI_URL=https://api.github.com/repos/Sahidev1/",
+    "build": "webpack --mode production --env GITAPI_URL=https://api.github.com/repos/Sahidev1/",
+    "build-gh-pages": "webpack --mode production --env basename=/ GITAPI_URL=https://api.github.com/repos/Sahidev1/ && cp dist/index.html dist/404.html",
     "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
