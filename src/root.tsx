@@ -26,7 +26,6 @@ root.render(
         <Routes>
             <Route path='/' element={<App {...props}/>}>
                 <Route index={true} element={<MainPage/>}/>
-                <Route path='about' element={<AboutPage/>}/>
                 <Route path='projects' element={<ProjectsPage/>}/>
                 <Route path="*" element={<ErrorPage/>}/>
             </Route>
