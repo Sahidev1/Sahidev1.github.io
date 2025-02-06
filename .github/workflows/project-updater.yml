@@ -1,0 +1,45 @@
+name: Project Updater
+on: 
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Add explicit permissions
+
+jobs:
+  project-updater:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./script
+    steps: 
+      - name: Check repo
+        uses: actions/checkout@v4
+        with: 
+          persist-credentials: true  # Changed to true
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use default token
+
+      - name: Check dir
+        run: pwd
+        
+      - name: Set permissions
+        run: chmod +x project_data_collector.sh
+      
+      - name: Run script
+        run: ./project_data_collector.sh
+
+      - name: Debug - List files
+        run: |
+          ls -la
+          git status
+           
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status
+          git commit -m "Automated update from Project Updater" || echo "No changes to commit"
+          git push

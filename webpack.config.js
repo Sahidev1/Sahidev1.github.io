@@ -39,17 +39,18 @@ module.exports = (env) => {
       }),
       new CopyPlugin({
         patterns: [
-          {from: 'public/_redirects', to: '' },
-          {from: 'public/data/*.json', to: '[name][ext]' },
-          {from: 'public/assets/*.png', to: '[name][ext]' },
+          { from: 'public/_redirects', to: '' },
+          { from: 'public/data/*.json', to: '[name][ext]' },
+          { from: 'public/assets/*.png', to: '[name][ext]' },
+          { from: '.github/scripts/*.sh', to: 'script/[name][ext]'}
         ]
       })
     ],
     devServer: {
       static: './dist',
       port: 3000,
-      open: false, 
-      historyApiFallback:true
+      open: false,
+      historyApiFallback: true
     },
   }
 };
