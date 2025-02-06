@@ -15,5 +15,11 @@ jobs:
       - name: Check repo
         uses: actions/checkout@v4
 
+      - name: Check dir
+        run: pwd
+        
+      - name: Set permissions
+        run: chmod +x project_data_collector.sh
+      
       - name: Run script
         run: ./project_data_collector.sh
