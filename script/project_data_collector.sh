@@ -11,8 +11,9 @@ projects=('myVM' 'recruitmentapp' 'calculator')
 DATA_PREFIX="project_data_"
 FILE_EXT=".json"
 
-RELATIVE_FILE_PATH=""
+RELATIVE_FILE_PATH="../cache/"
 
+mkdir "../cache" 
 
 if [[ "${MODE}" == "test" ]]; then
     RELATIVE_FILE_PATH=""
@@ -22,4 +23,3 @@ for project in "${projects[@]}"; do
     curl -H "Accept: application/json" -X GET "${GITHUB_API_LINK}${project}" -o "${RELATIVE_FILE_PATH}${DATA_PREFIX}${project}${FILE_EXT}"
     #echo "${GITHUB_API_LINK}${project}, " "${RELATIVE_FILE_PATH}${DATA_PREFIX}${project}${FILE_EXT}"
 done
-
