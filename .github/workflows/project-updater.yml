@@ -1,8 +1,12 @@
 name: Project Updater
 on: 
   schedule:
-    - cron: '0 0 * * *'  # Fixed cron syntax (you had '0 0 * **')
+    - cron: '0 0 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: write  # Add explicit permissions
+
 jobs:
   project-updater:
     runs-on: ubuntu-latest
@@ -13,8 +17,9 @@ jobs:
       - name: Check repo
         uses: actions/checkout@v4
         with: 
-          persist-credentials: false
-          ref: gh-pages  # Explicitly checkout gh-pages branch
+          persist-credentials: true  # Changed to true
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}  # Use default token
 
       - name: Check dir
         run: pwd
@@ -26,12 +31,9 @@ jobs:
         run: ./project_data_collector.sh
            
       - name: Commit and push changes
-        env: 
-          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m "Automated update from Project Updater" || echo "No changes to commit"
-          git remote set-url origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git push origin gh-pages
+          git push
