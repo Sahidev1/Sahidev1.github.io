@@ -1,5 +1,11 @@
 name: Project Updater
 on: 
+  workflow_run:
+    workflows: ["pages-build-deployment "]  # Replace with your deployment workflow name
+    types:
+      - completed
+    branches:
+      - gh-pages  # or whatever branch your deploy workflow runs on
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
@@ -9,6 +15,8 @@ permissions:
 
 jobs:
   project-updater:
+      # Only run if the deployment was successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     defaults:
       run:
