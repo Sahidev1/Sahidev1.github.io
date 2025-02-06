@@ -11,7 +11,7 @@ projects=('myVM' 'recruitmentapp' 'calculator')
 DATA_PREFIX="project_data_"
 FILE_EXT=".json"
 
-RELATIVE_FILE_PATH="../../"
+RELATIVE_FILE_PATH=""
 
 
 if [[ "${MODE}" == "test" ]]; then
