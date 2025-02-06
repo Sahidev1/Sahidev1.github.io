@@ -14,6 +14,8 @@ jobs:
     steps: 
       - name: Check repo
         uses: actions/checkout@v4
+        with: 
+          persist-credentials: true
 
       - name: Check dir
         run: pwd
@@ -23,3 +25,11 @@ jobs:
       
       - name: Run script
         run: ./project_data_collector.sh
+           
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Automated update from Project Updater" || echo "No changes to commit"
+          git push
