@@ -3,9 +3,9 @@ import ProjectScraper from "../APIs/ProjectScraper";
 import { GitHubProjectInterface } from "../APIs/ProjectScraper";
 import { GitHubLogo } from "../components/Logos";
 
-const scraper:ProjectScraper = new ProjectScraper();
 
 export default function ProjectsPage(){
+    const scraper:ProjectScraper = new ProjectScraper();
     const [scraped, setScraped] = useState(false);
 
     useEffect(()=>{
@@ -23,6 +23,7 @@ export default function ProjectsPage(){
         }
 
         loadAndFetch().then(r => setScraped(true)).catch(err => console.error(err));
+        
     },[])
 
     return <div className="projects-page">
@@ -37,7 +38,7 @@ export default function ProjectsPage(){
                         year: 'numeric', 
                         month: 'long', 
                         day: 'numeric' 
-                    })}, <a href={proj.html_url}> <GitHubLogo/> </a></p>
+                    })}, <a href={proj.html_url}> <GitHubLogo/> </a> </p>
                     
                     
                     
