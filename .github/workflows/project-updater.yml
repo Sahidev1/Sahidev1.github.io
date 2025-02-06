@@ -1,7 +1,7 @@
 name: Project Updater
 on: 
   workflow_run:
-    workflows: ["pages-build-deployment "]  # Replace with your deployment workflow name
+    workflows: ["pages-build-deployment"]  # Replace with your deployment workflow name
     types:
       - completed
     branches:
@@ -13,8 +13,10 @@ on:
 permissions:
   contents: write  # Add explicit permissions
 
+
 jobs:
   project-updater:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     defaults:
       run:
