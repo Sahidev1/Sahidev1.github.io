@@ -1,0 +1,19 @@
+name: Project Updater
+
+on: 
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  project-updater:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./script
+    steps: 
+      - name: Check repo
+        uses: actions/checkout@v4
+
+      - name: Run script
+        run: ./project_data_collector.sh
