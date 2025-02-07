@@ -66,8 +66,8 @@
   "releases_url": "https://api.github.com/repos/Sahidev1/calculator/releases{/id}",
   "deployments_url": "https://api.github.com/repos/Sahidev1/calculator/deployments",
   "created_at": "2024-12-10T17:44:58Z",
-  "updated_at": "2025-01-13T13:48:13Z",
-  "pushed_at": "2025-01-13T13:48:09Z",
+  "updated_at": "2025-02-07T20:50:12Z",
+  "pushed_at": "2025-02-07T20:50:09Z",
   "git_url": "git://github.com/Sahidev1/calculator.git",
   "ssh_url": "git@github.com:Sahidev1/calculator.git",
   "clone_url": "https://github.com/Sahidev1/calculator.git",
@@ -97,7 +97,8 @@
     "evaluator",
     "functional-programming",
     "lexer",
-    "parser"
+    "parser",
+    "personal-project"
   ],
   "visibility": "public",
   "forks": 0,
@@ -113,5 +114,8 @@
   },
   "temp_clone_token": "",
   "network_count": 0,
-  "subscribers_count": 1
+  "subscribers_count": 1,
+  "personal_project": {
+    "status": "completed"
+  }
 }
