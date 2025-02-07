@@ -33,7 +33,16 @@ export default function ProjectsPage() {
     console.log(scraped)
 
     return <div className="projects-page">
-        <h1>Projects Page</h1>
+        <h1>My Projects</h1>
+        <div className="project-legend">
+            <h3>project status legend:</h3>
+            <ul>
+                <li className="completed"> Completed version available</li>
+                <li className="ongoing"> Ongoing, actively working on it</li>
+                <li className="paused"> Paused work on it, uncompleted</li>
+                <li className="default"> Unknown project status</li>
+            </ul>
+        </div>
         {scraped ?
             <ul>
                 {cacheReader.getProjects().map(proj => {

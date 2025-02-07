@@ -306,6 +306,24 @@ li {
 	@include logo();
 }
 
+.project-legend{
+	padding: 0px 15px 0px 15px;
+	border-style: solid;
+	border-color:  rgba(0, 0, 97, 0.45);
+	border-width: 1px;
+	line-height: 20px;
+	border-radius: 5px;
+
+	
+
+	li{
+		margin-left: 7%;
+	}
+	li::marker {
+		position: relative;
+	}
+}
+
 // Variables as CSS Custom Properties
 :root {
 	--color-bg: #FFF7F0;
