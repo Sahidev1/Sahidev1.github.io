@@ -100,7 +100,13 @@
   "open_issues": 0,
   "watchers": 0,
   "default_branch": "main",
-  "temp_clone_token": null,
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
   "parent": {
     "id": 597008090,
     "node_id": "R_kgDOI5We2g",
