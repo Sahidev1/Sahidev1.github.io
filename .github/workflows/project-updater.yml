@@ -17,8 +17,10 @@ permissions:
 jobs:
   project-updater:
     if: |
-      github.actor != 'github-actions[bot]' &&
-      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_run' && 
+       !contains(github.event.workflow_run.head_commit.message, 'Automated update from Project Updater'))
     runs-on: ubuntu-latest
     defaults:
       run:
