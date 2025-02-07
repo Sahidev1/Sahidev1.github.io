@@ -16,7 +16,9 @@ permissions:
 
 jobs:
   project-updater:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: |
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     defaults:
       run:
