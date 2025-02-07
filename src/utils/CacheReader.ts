@@ -14,6 +14,9 @@ export interface GitHubProjectInterface {
     html_url: string;
     description: string;
     updated_at: string;
+    personal_project: {
+        status: string;
+    }|null|undefined;
 }
 
 
@@ -21,7 +24,7 @@ export interface GitHubProjectInterface {
 export default class CacheReader {
     private projectIDs: string[];
     projects: GitHubProjectInterface[];
-    observers: (()=>void)[];   
+    observers: (() => void)[];
 
     constructor() {
         this.projectIDs = [];
@@ -29,7 +32,7 @@ export default class CacheReader {
         this.observers = [];
     }
 
-    clearCache(){
+    clearCache() {
         this.projects = [];
     }
 
@@ -59,12 +62,12 @@ export default class CacheReader {
 
     }
 
-    addObserver(observer:()=>void){
+    addObserver(observer: () => void) {
         this.observers.push(observer);
     }
 
 
-    callObservers(){
+    callObservers() {
         this.observers.forEach(observer => observer());
     }
 
@@ -73,14 +76,14 @@ export default class CacheReader {
     async fetchAll() {
         try {
             await Promise.all(
-                this.projectIDs.map(async id =>{
+                this.projectIDs.map(async id => {
                     try {
-                        let proj:GitHubProjectInterface = await this.fetchCacheData(id);
+                        let proj: GitHubProjectInterface = await this.fetchCacheData(id);
                         this.projects.push(proj);
                     } catch (error) {
                         try {
                             console.log("trying backup cache")
-                            let proj:GitHubProjectInterface = await this.fetchBackupCache(id);
+                            let proj: GitHubProjectInterface = await this.fetchBackupCache(id);
                             this.projects.push(proj);
                             console.log("backup cache success")
                         } catch (error) {
@@ -96,7 +99,7 @@ export default class CacheReader {
         }
     }
 
-    async fetchCacheData(pname: string):Promise<GitHubProjectInterface> {
+    async fetchCacheData(pname: string): Promise<GitHubProjectInterface> {
         try {
             console.log("fetch cache data started")
             const res: Response = await fetch(CACHE_DIR + pname + ".json", {

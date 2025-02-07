@@ -52,6 +52,7 @@ $spacing: 1rem;
 	width: 100%;
 }
 
+
 @mixin logo {
 	margin: 0rem 0.5rem 0rem 0.5rem;
 	width: 36px;
@@ -269,6 +270,41 @@ button {
 }
 
 
+.project-list-item{
+	h2  {
+		display: inline;
+	}
+}
+
+@mixin projects-page-marker {
+	font-size: 2rem;
+}
+
+li {
+	&.default::marker {
+		@include projects-page-marker();
+		color: darkgray;
+	}
+
+	&.completed::marker{
+		@include projects-page-marker();
+		color: green;
+	}
+
+	&.ongoing::marker{
+		@include projects-page-marker();
+		color: yellow;
+	}
+
+	&.paused::marker{
+		@include projects-page-marker();
+		color: red;
+	}
+}
+
+.github-projects-links{
+	@include logo();
+}
 
 // Variables as CSS Custom Properties
 :root {

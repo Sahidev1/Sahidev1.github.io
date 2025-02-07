@@ -27,7 +27,7 @@ export default function ProjectsPage() {
 
         loadAndFetch();
 
-        return (()=> cacheReader.clearCache());
+        return (() => cacheReader.clearCache());
     }, [])
 
     console.log(scraped)
@@ -37,15 +37,19 @@ export default function ProjectsPage() {
         {scraped ?
             <ul>
                 {cacheReader.getProjects().map(proj => {
-                    return <li>
-                        <h2>{proj.name}</h2>
-                        <p>{proj.description}</p>
-                        <p><strong>Last updated:</strong> {new Date(proj.updated_at).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        })}, <a href={proj.html_url}> Github</a> </p>
+                    return <li className={proj.personal_project ? proj.personal_project.status : "default"}>
+                        <div className="project-list-item">
+                            <h2>{proj.name}</h2>
+                            <span className="github-projects-links"><a href={proj.html_url}><img src="github-mark.png"></img></a></span>
+                            <p>{proj.description}</p>
+                            <p><strong>Last updated:</strong> {new Date(proj.updated_at).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}
 
+                            </p>
+                        </div>
 
 
                     </li>
