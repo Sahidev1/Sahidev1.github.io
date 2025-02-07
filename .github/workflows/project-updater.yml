@@ -1,14 +1,22 @@
 name: Project Updater
 on: 
+  workflow_run:
+    workflows: ["pages-build-deployment"]  # Replace with your deployment workflow name
+    types:
+      - completed
+    branches:
+      - gh-pages  # or whatever branch your deploy workflow runs on
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write  # Add explicit permissions
 
+
 jobs:
   project-updater:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     defaults:
       run:
