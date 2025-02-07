@@ -1,12 +1,21 @@
 #!/usr/bin/bash
 
+
+#this script checks all my available public repos and caches it
 MODE=$1 
 
 echo "$MODE"
 
 GITHUB_API_LINK="https://api.github.com/repos/Sahidev1/"
+GITHUB_USERS_API="https://api.github.com/users/Sahidev1/"
 
-projects=('myVM' 'recruitmentapp' 'calculator')
+
+projects=($(curl -s "${GITHUB_USERS_API}repos" | jq -r '.[].name'))
+
+
+
+
+
 
 DATA_PREFIX="project_data_"
 FILE_EXT=".json"
