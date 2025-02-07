@@ -42,7 +42,8 @@ module.exports = (env) => {
           { from: 'public/_redirects', to: '' },
           { from: 'public/data/*.json', to: '[name][ext]' },
           { from: 'public/assets/*.png', to: '[name][ext]' },
-          { from: '.github/scripts/*.sh', to: 'script/[name][ext]'}
+          { from: '.github/scripts/*.sh', to: 'script/[name][ext]'},
+          { from: 'public/backup_cache', to: 'backup_cache'}
         ]
       })
     ],
