@@ -1,50 +1,56 @@
-import React, { useEffect, useState } from "react";
-import ProjectScraper from "../APIs/ProjectScraper";
-import { GitHubProjectInterface } from "../APIs/ProjectScraper";
+import React, { useEffect, useRef, useState } from "react";
+import CacheReader from "../utils/CacheReader";
+import { GitHubProjectInterface } from "../utils/CacheReader";
 import { GitHubLogo } from "../components/Logos";
 
 
-export default function ProjectsPage(){
-    const scraper:ProjectScraper = new ProjectScraper();
+export default function ProjectsPage() {
+    const cacheReaderRef = useRef<CacheReader>(new CacheReader);
+    const cacheReader: CacheReader = cacheReaderRef.current;
     const [scraped, setScraped] = useState(false);
+    cacheReader.addObserver(() => setScraped(true));
 
-    useEffect(()=>{
-        const loadAndFetch = async ()=>{
+    useEffect(() => {
+        const loadAndFetch = async () => {
             try {
-                await scraper.loadData();
-                if (scraper.hasProjectIDs()){
-                    await scraper.fetchAll();
+                await cacheReader.loadCacheIndexData();
+                if (cacheReader.hasProjectIDs()) {
+                    await cacheReader.fetchAll();
+                    console.log(cacheReader.projects)
                 } else {
                     throw Error("no project id's loaded");
                 }
             } catch (error) {
-                return error;
+                console.error(error)
             }
         }
 
-        loadAndFetch().then(r => setScraped(true)).catch(err => console.error(err));
-        
-    },[])
+        loadAndFetch();
+
+        return (()=> cacheReader.clearCache());
+    }, [])
+
+    console.log(scraped)
 
     return <div className="projects-page">
         <h1>Projects Page</h1>
-        {scraped?
-        <ul>
-            {scraper.getProjects().map(proj => {
-                return <li>
-                    <h2>{proj.name}</h2>
-                    <p>{proj.description}</p>
-                    <p><strong>Last updated:</strong> {new Date(proj.updated_at).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                    })}, <a href={proj.html_url}> <GitHubLogo/> </a> </p>
-                    
-                    
-                    
-                </li>
-            })}
-        </ul>
-        :""}
+        {scraped ?
+            <ul>
+                {cacheReader.getProjects().map(proj => {
+                    return <li>
+                        <h2>{proj.name}</h2>
+                        <p>{proj.description}</p>
+                        <p><strong>Last updated:</strong> {new Date(proj.updated_at).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}, <a href={proj.html_url}> Github</a> </p>
+
+
+
+                    </li>
+                })}
+            </ul>
+            : ""}
     </div>
 }
