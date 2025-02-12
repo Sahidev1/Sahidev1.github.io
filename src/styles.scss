@@ -182,7 +182,6 @@ p {
 }
 
 footer {
-	position: fixed;
 	left: 1rem;
 	right: 1rem;
 	bottom: 0;
@@ -198,7 +197,7 @@ footer {
 	p {
 		font-family: $font-family-footer;
 		color: $color-text;
-		font-size: 8px;
+		font-size: 9px;
 		line-height: 2px;
 	}
 
@@ -245,7 +244,7 @@ button {
 }
 
 .navbar_currpath_button {
-	border-color: $color-bg;
+	border-color: $color-text;
 	border-style: solid;
 	border-width: 3px;
 }
@@ -278,7 +277,7 @@ button {
 
 
 	p {
-		padding-left: 1rem;
+		padding-left: 1.25rem;
 	}
 
 	//	background-color: rgba(30*$color_factor,40*$color_factor,70*$color_factor,1);
@@ -370,16 +369,21 @@ li {
 	padding: 1rem 0rem 1rem 0rem;
 }
 
-.contents{
+.contents {
 	span {
 		padding: 1rem;
 		margin: 2rem 0rem 2rem 0rem;
 		display: block;
 		@include projects-mix();
+		
 
-		h2{
+		h2 {
 			margin: 0px;
-		}	
+		}
+
+		p {
+			padding: 0 0rem 0 2rem;
+		}
 	}
 }
 

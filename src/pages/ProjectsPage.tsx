@@ -33,7 +33,6 @@ export default function ProjectsPage() {
     console.log(scraped)
 
     return <div className="projects-page">
-        <h1>My Projects</h1>
         <div className="project-legend">
             <h3>project status legend:</h3>
             <ul>
