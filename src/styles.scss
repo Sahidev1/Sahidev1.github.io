@@ -270,10 +270,19 @@ button {
 }
 
 
-.project-list-item{
-	h2  {
+.project-list-item {
+	h2 {
 		display: inline;
 	}
+
+
+
+	p {
+		padding-left: 1rem;
+	}
+
+	//	background-color: rgba(30*$color_factor,40*$color_factor,70*$color_factor,1);
+
 }
 
 @mixin projects-page-marker {
@@ -281,46 +290,96 @@ button {
 }
 
 li {
+	margin: 0rem 0rem 2.5rem 1.5rem;
+
+	h2,
+	p {
+		margin: 0.5rem 0rem 0.5rem 0rem;
+	}
+
 	&.default::marker {
 		@include projects-page-marker();
 		color: darkgray;
 	}
 
-	&.completed::marker{
+	&.completed::marker {
 		@include projects-page-marker();
 		color: green;
 	}
 
-	&.ongoing::marker{
+	&.ongoing::marker {
 		@include projects-page-marker();
 		color: yellow;
 	}
 
-	&.paused::marker{
+	&.paused::marker {
 		@include projects-page-marker();
 		color: red;
 	}
 }
 
-.github-projects-links{
+.github-projects-links {
 	@include logo();
 }
 
-.project-legend{
+@mixin projects-mix {
+	border-radius: 0;
+
+	$color_factor: 0.75;
+
+	background-color: rgba(30*$color_factor, 40*$color_factor, 70*$color_factor, 1);
+}
+
+.project-legend {
+	@include projects-mix();
 	padding: 0px 15px 0px 15px;
-	border-style: solid;
-	border-color:  rgba(0, 0, 97, 0.45);
-	border-width: 1px;
+	//border-style: solid;
+	//border-color:  $color-button-primary;
+	//border-width: 1px;
 	line-height: 20px;
-	border-radius: 5px;
 
-	
+	padding: 1rem;
 
-	li{
-		margin-left: 7%;
+
+	p {
+		font-size: medium;
+		font-weight: 200;
+		margin: 0px;
 	}
+
+	h3 {
+		margin: 0rem 0rem 0.5rem 0rem;
+	}
+
+	ul {
+		margin: 0px;
+	}
+
+	li {
+		margin: 0px 0px 0px 3rem;
+	}
+
 	li::marker {
 		position: relative;
+	}
+}
+
+.project-content {
+	@include projects-mix();
+	margin: 48px 0px 32px 0px;
+	padding: 1rem 0rem 1rem 0rem;
+}
+
+.contents{
+	span {
+		padding: 1rem;
+		margin: 2rem 0rem 2rem 0rem;
+		display: block;
+		@include projects-mix();
+
+		h2{
+			margin: 0px;
+		}	
 	}
 }
 

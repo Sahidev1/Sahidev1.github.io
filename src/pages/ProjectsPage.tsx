@@ -37,33 +37,35 @@ export default function ProjectsPage() {
         <div className="project-legend">
             <h3>project status legend:</h3>
             <ul>
-                <li className="completed"> Completed version available</li>
-                <li className="ongoing"> Ongoing, actively working on it</li>
-                <li className="paused"> Paused work on it, uncompleted</li>
-                <li className="default"> Unknown project status</li>
+                <li className="completed"> <p>Completed version available    </p></li>
+                <li className="ongoing">   <p>Ongoing, actively working on it</p></li>
+                <li className="paused">    <p>Paused work on it, uncompleted </p></li>
+                <li className="default">   <p>Unknown project status         </p></li>
             </ul>
         </div>
         {scraped ?
-            <ul>
-                {cacheReader.getProjects().map(proj => {
-                    return <li className={proj.personal_project ? proj.personal_project.status : "default"}>
-                        <div className="project-list-item">
-                            <h2>{proj.name}</h2>
-                            <span className="github-projects-links"><a href={proj.html_url}><img src="github-mark.png"></img></a></span>
-                            <p>{proj.description}</p>
-                            <p><strong>Last updated:</strong> {new Date(proj.updated_at).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
+            <div className="project-content">
+                <ul>
+                    {cacheReader.getProjects().map(proj => {
+                        return <li className={proj.personal_project ? proj.personal_project.status : "default"}>
+                            <div className="project-list-item">
+                                <h2>{proj.name}</h2>
+                                <span className="github-projects-links"><a href={proj.html_url}><img src="github-mark.png"></img></a></span>
+                                <p>{proj.description}</p>
+                                <p><strong>Last updated:</strong> {new Date(proj.updated_at).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
 
-                            </p>
-                        </div>
+                                </p>
+                            </div>
 
 
-                    </li>
-                })}
-            </ul>
+                        </li>
+                    })}
+                </ul>
+            </div>
             : ""}
     </div>
 }

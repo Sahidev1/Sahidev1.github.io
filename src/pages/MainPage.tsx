@@ -73,7 +73,7 @@ export default function MainPage() {
 
             <h1 hidden={!showConstruction} onClick={() => setShowConstruction(!showConstruction)}> UNDER CONSTRUCTION 🏗️ </h1>
             {fetchDone && content.hasLang(contentLang) ?
-                <span className="contents">
+                <div className="contents">
                     <span className="intro">
                         {(content.getContents(contentLang) as any)["intro"] ?
                             Object.keys((content.getContents(contentLang) as any)["intro"]).map(e => {
@@ -98,7 +98,7 @@ export default function MainPage() {
                             })
                             : ""}
                     </span>
-                </span>
+                </div>
                 : <p>loading</p>
 
 
