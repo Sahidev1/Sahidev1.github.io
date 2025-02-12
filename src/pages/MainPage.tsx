@@ -71,7 +71,7 @@ export default function MainPage() {
         <div className="main-page">
 
 
-            <h1 hidden={!showConstruction} onClick={() => setShowConstruction(!showConstruction)}> UNDER CONSTRUCTION 🏗️ </h1>
+            <h1 hidden={true}> UNDER CONSTRUCTION 🏗️ </h1>
             {fetchDone && content.hasLang(contentLang) ?
                 <div className="contents">
                     <span className="intro">
