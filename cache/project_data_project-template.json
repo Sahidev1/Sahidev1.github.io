@@ -193,7 +193,7 @@
     "has_wiki": true,
     "has_pages": false,
     "has_discussions": false,
-    "forks_count": 7,
+    "forks_count": 6,
     "mirror_url": null,
     "archived": false,
     "disabled": false,
@@ -206,7 +206,7 @@
 
     ],
     "visibility": "public",
-    "forks": 7,
+    "forks": 6,
     "open_issues": 2,
     "watchers": 5,
     "default_branch": "master"
@@ -296,7 +296,7 @@
     "has_wiki": true,
     "has_pages": false,
     "has_discussions": false,
-    "forks_count": 7,
+    "forks_count": 6,
     "mirror_url": null,
     "archived": false,
     "disabled": false,
@@ -309,11 +309,11 @@
 
     ],
     "visibility": "public",
-    "forks": 7,
+    "forks": 6,
     "open_issues": 2,
     "watchers": 5,
     "default_branch": "master"
   },
-  "network_count": 7,
+  "network_count": 6,
   "subscribers_count": 0
 }
