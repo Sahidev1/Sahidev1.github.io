@@ -114,8 +114,5 @@
   },
   "temp_clone_token": "",
   "network_count": 0,
-  "subscribers_count": 1,
-  "personal_project": {
-    "status": "completed"
-  }
+  "subscribers_count": 1
 }
